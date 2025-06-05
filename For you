@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confess untuk Fazri</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffe5e5;
+      color: #5a2a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 30px;
+      text-align: center;
+    }
+    .container {
+      background-color: #fff0f0;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 600px;
+      box-shadow: 0 5px 15px rgba(90, 42, 42, 0.2);
+    }
+    h1 {
+      color: #c0392b;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .next-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ffb3b3;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .next-btn:hover {
+      background-color: #ff9999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="page">
+    <h1>Hai Fazri 👋🏻</h1>
+    <p>Seneng deh rasanya bisa kenal kamu di SMA ini.</p>
+    <button class="next-btn" onclick="nextPage()">Lanjut</button>
+  </div>
+
+  <script>
+    const pages = [
+      {
+        title: "Hai Fazri 👋🏻",
+        text: "Seneng deh rasanya bisa kenal kamu di SMA ini."
+      },
+      {
+        title: "Waktu Nggak Kerasa, Ya?",
+        text: "Perjalanan masih panjang, bukan? Tapi waktu tuh kerasa cepet banget berlalu. Rasanya baru kemarin kita mulai, sekarang udah harus mikir tentang langkah selanjutnya."
+      },
+      {
+        title: "Tentang Mimpi dan Rencana",
+        text: "Apa kamu sudah punya plan untuk ke depannya? Misal kuliah? Kalau aku sih pengennya di UNPAD, tapi aku nggak tahu bisa mencapainya atau nggak. Tapi yang pasti, aku akan berusaha sebisa mungkin. Kamu juga ya. Apa pun mimpimu, kalau kamu udah berusaha sebaik mungkin dan hasilnya belum sesuai harapan, itu bukan berarti kamu gagal. Kecewa itu wajar, tapi jangan biarkan itu bikin kamu berhenti."
+      },
+      {
+        title: "Nikmati Perjuangannya",
+        text: "Kenapa lihat perjuangannya? Kadang seseorang sering kecewa kalau rencananya nggak sesuai ekspektasi. Tapi menurutku, perjuangan itu yang bikin semuanya jadi berarti. Saat kita menoleh ke belakang nanti, kita akan lebih ingat usahanya, bukan hasil akhirnya."
+      },
+      {
+        title: "Sok Puitis Dikit Gak Apa Ya?",
+        text: "Jadi sebenernya... apa sih yang mau aku omongin? Haha... entahlah, lagi pengen sok puitis aja. Oh iya, seperti yang aku bilang sebelumnya — aku punya perasaan sama kamu. Tapi aku ngomong ini bukan buat bikin kamu terbebani, serius. Jadi, jangan ngerasa kasihan atau merasa harus bales perasaan aku. Kalau kamu ngerasa risih, kamu bisa nolak aku dengan tegas, nggak apa-apa, aku ngerti kok. Aku ngelakuin ini karena emang keinginan aku sendiri. Jadi santai aja, cukup jadi diri kamu sendiri."
+      },
+      {
+        title: "Siapa Aku? Misteri Dulu Ya",
+        text: "Mungkin kamu mikir, “Siapa sih orang yang nge-chat aku ini?” Hmm... aku belum mau kasih tahu, maaf ya. Tapi kalau kamu mau nebak-nebak, silakan wkwk. Tapi ya, untuk sekarang... biarin jadi misteri dulu. Tenang aja, aku bukan orang aneh kok. Mungkin suatu saat kamu bakal tau, atau bisa aja ini jadi misteri selamanya wkwk."
+      },
+      {
+        title: "Hint Dikit Nih",
+        text: "Kalau kamu mau hint, kita belum pernah ngobrol langsung. Tapi yang pasti, kamu pernah lihat aku (iya dong, satu sekolah wkwk). Intinya sih gitu aja. Aku bingung juga mau nyampein apa lagi, yang jelas… semoga pesan ini sampai ke kamu dengan cara yang bikin kamu senyum."
+      },
+      {
+        title: "Terakhir, Makasih Udah Baca",
+        text: "Kalau kamu mau bales pesan ini, boleh banget! Tapi kalau kamu nggak punya kata-kata buat bales juga nggak masalah. Cukup kasih tanda, misalnya emot jempol di pesan aku, biar aku tahu kamu udah baca — dan aku nggak ngarep balesan wkwk. Kalau mau bales, balesan ringan juga nggak papa kok. Oh iya, kamu geli nggak sih baca ginian? Aku yang ngetik aja deg-degan dan takut kamu ngerasa aneh haha... Tapi yaudah deh — satu hal lagi: senyum kamu manis, jiaaakkhh wkwk. Udah ya, aku malu. Babay~ dan makasih udah baca sampai akhir!"
+      }
+    ];
+
+    let currentPage = 0;
+    function nextPage() {
+      currentPage++;
+      if (currentPage < pages.length) {
+        const container = document.getElementById("page");
+        container.innerHTML = `
+          <h1>${pages[currentPage].title}</h1>
+          <p>${pages[currentPage].text}</p>
+          <button class="next-btn" onclick="nextPage()">Lanjut</button>
+        `;
+      } else {
+        document.getElementById("page").innerHTML = `
+          <h1>🥰 Tamat!</h1>
+          <p>Makasih udah nyempetin baca sampai akhir!</p>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
